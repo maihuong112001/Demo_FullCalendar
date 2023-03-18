@@ -28,7 +28,7 @@ export default defineComponent({
         editable: true,
         selectable: true,
         selectMirror: true,
-        dayMaxEvents: true,
+        dayMaxEvents: false,
         weekends: true,
         select: this.handleDateSelect,
         eventClick: this.handleEventClick,
