@@ -5,7 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timelinePlugin from "@fullcalendar/timeline";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import Chart from "chart.js";
+// import Chart from "chart.js";
 
 import { INITIAL_EVENTS, createEventId } from "./event-utils";
 
@@ -99,56 +99,6 @@ export default defineComponent({
     },
     handleEvents(events) {
       this.currentEvents = events;
-    },
-    createChart() {
-      const ctx = this.$refs.chart.getContext("2d");
-      this.chart = new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: [],
-          datasets: [
-            {
-              label: "Events",
-              data: [],
-              backgroundColor: "rgba(54, 162, 235, 0.2)",
-              borderColor: "rgba(54, 162, 235, 1)",
-              borderWidth: 1,
-            },
-          ],
-        },
-        options: {
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  beginAtZero: true,
-                },
-              },
-            ],
-          },
-        },
-      });
-    },
-    updateChart() {
-      const events = this.$refs.fullCalendar.getApi().getEvents();
-      const eventDataByDate = {};
-      events.forEach((event) => {
-        const date = event.startStr.split("T")[0];
-        if (!eventDataByDate[date]) {
-          eventDataByDate[date] = {
-            date,
-            count: 0,
-          };
-        }
-        eventDataByDate[date].count++;
-      });
-      const labels = Object.keys(eventDataByDate);
-      const data = Object.values(eventDataByDate).map(
-        (eventData) => eventData.count
-      );
-      this.chart.data.labels = labels;
-      this.chart.data.datasets[0].data = data;
-      this.chart.update();
     },
   },
 });
