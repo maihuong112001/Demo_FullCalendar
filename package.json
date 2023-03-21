@@ -11,8 +11,11 @@
     "@fullcalendar/core": "^6.1.4",
     "@fullcalendar/daygrid": "^6.1.4",
     "@fullcalendar/interaction": "^6.1.4",
+    "@fullcalendar/resource": "^6.1.4",
+    "@fullcalendar/resource-timeline": "^6.1.4",
     "@fullcalendar/timegrid": "^6.1.4",
     "@fullcalendar/vue3": "^6.1.4",
+    "chart.js": "^4.2.1",
     "core-js": "^3.8.3",
     "vue": "^3.2.13"
   },
